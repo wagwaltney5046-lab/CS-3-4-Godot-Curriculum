@@ -27,7 +27,7 @@ func _on_body_entered(body):
 	if collected == false:
 		if body is Player:
 			collected = true
-			body.collect_pickup(type, amount)
+			configure_pickup(type, label)
 			# Remove the potion after use
 			if auto_pickup:
 				if $AnimationPlayer.has_animation("disappear"):
@@ -36,27 +36,25 @@ func _on_body_entered(body):
 			else:
 				pass
 
+
 func configure_pickup(_type : String, _label : String) -> bool:
 	if _type == "coin":
 		if _label == "copper":
-			amount = 1
+			load("res://resources/coin.tres").number += 5
 			return true
 		elif _label == "silver":
-			amount = 5
+			load("res://resources/coin.tres").number += 15
 			return true
 		elif _label == "gold":
-			amount = 10
+			load("res://resources/coin.tres").number += 30
 			return true
 		else: return false
 	elif _type == "health_potion":
 		if _label == "small":
-			amount = 5
+			load("res://resources/Health_potion.tres").number += 1
 			return true
 		elif _label == "large":
-			amount = 100
+			load("res://resources/Major_Health_potion.tres").number += 1
 			return true
 		else: return false
 	else: return false
-		
-			
-			

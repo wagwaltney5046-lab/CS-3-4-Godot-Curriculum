@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cpcjxr26k8tgw"]
+[gd_scene load_steps=15 format=4 uid="uid://cpcjxr26k8tgw"]
 
 [ext_resource type="PackedScene" uid="uid://cqvpxnx2pwqhk" path="res://scenes/player.tscn" id="1_2j8vx"]
 [ext_resource type="Script" uid="uid://bnk74kv0ariww" path="res://scripts/game_world.gd" id="2_3k9wy"]
@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c6cn64y21oke7" path="res://scenes/torch.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://c8mf4562xlcu8" path="res://scenes/door.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://5p2ev4o8h7si" path="res://scenes/lever.tscn" id="8_85g3d"]
+[ext_resource type="Script" uid="uid://vhni70tkc5mc" path="res://scripts/items.gd" id="11_trceg"]
 [ext_resource type="PackedScene" uid="uid://c6gaa4kprawy0" path="res://scenes/enemies/slime.tscn" id="11_ya4ey"]
-[ext_resource type="Script" uid="uid://co5hnowm81a7y" path="res://scripts/enemies/enemy_base.gd" id="12_eb6dy"]
+[ext_resource type="Resource" uid="uid://dt163an6p4kg5" path="res://resources/Health_potion.tres" id="12_a8y0u"]
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_energy_multiplier = 0.1
@@ -25,7 +26,8 @@ script = ExtResource("2_3k9wy")
 environment = SubResource("Environment_jyhfs")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.103743605, 0.103743516, 0.103743516, 1)
+visible = false
+color = Color(0.103744, 0.103744, 0.103744, 1)
 
 [node name="Tilemap" type="Node2D" parent="."]
 scale = Vector2(2, 2)
@@ -71,11 +73,12 @@ position = Vector2(24, -24)
 [node name="Lever" parent="Tilemap/StuffOnTop" instance=ExtResource("8_85g3d")]
 position = Vector2(-183.5, 105)
 
-[node name="Chest" parent="Tilemap/StuffOnTop" instance=ExtResource("6_tipki")]
-position = Vector2(150, 29)
+[node name="Chest" parent="Tilemap/StuffOnTop/Lever" instance=ExtResource("6_tipki")]
+position = Vector2(333.5, -76)
 
 [node name="Player" parent="." instance=ExtResource("1_2j8vx")]
 unique_name_in_owner = true
+inv_List = Array[ExtResource("11_trceg")]([ExtResource("12_a8y0u")])
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -89,5 +92,4 @@ grow_vertical = 2
 
 [node name="slime" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(-496, 36)
-script = ExtResource("12_eb6dy")
 move_points = Array[Vector2]([Vector2(-350, -21), Vector2(-520, -300)])

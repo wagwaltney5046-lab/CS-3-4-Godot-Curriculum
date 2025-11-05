@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="inventory_item" load_steps=2 format=3 uid="uid://dt163an6p4kg5"]
+
+[ext_resource type="Script" uid="uid://vhni70tkc5mc" path="res://scripts/items.gd" id="1_jj25u"]
+
+[resource]
+script = ExtResource("1_jj25u")
+price = 10
+name = "Health potion"
+number = 1
