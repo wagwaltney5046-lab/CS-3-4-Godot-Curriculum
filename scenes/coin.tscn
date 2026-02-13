@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://doih0wyrka2p1" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_3.png" id="4_jig8b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jig8b"]
+resource_local_to_scene = true
 shader = ExtResource("2_wnlwo")
-shader_parameter/color = Color(0.7819218, 0.7083258, 0.2478461, 1)
+shader_parameter/color = Color(0.825076, 0.214714, 0.201838, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xmuha"]
 animations = [{
@@ -31,7 +32,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfxoj"]
-radius = 4.1231055
+radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_gan2x"]
 length = 0.001
@@ -71,9 +72,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2.2973945, 3.03143),
+"transitions": PackedFloat32Array(2.29739, 3.03143),
 "update": 0,
-"values": [0.0, 6.283185307179586]
+"values": [0.0, 6.28319]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,7 +111,9 @@ _data = {
 
 [node name="Coin" type="Area2D"]
 script = ExtResource("1_d14el")
-color = Color(0.7819218, 0.7083258, 0.2478461, 1)
+color = Color(0.825076, 0.214714, 0.201838, 1)
+type = "coin"
+label = "copper"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_jig8b")
